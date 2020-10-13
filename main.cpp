@@ -28,15 +28,15 @@ void FillChunk(int id, int *arr, size_t length)
 int main()
 {
     std::thread threads[THREAD_COUNT];
-    int *largeData = new int[BUFFER_SIZE];
-    int *start_addr = largeData;
+    int *data = new int[BUFFER_SIZE];
+    int *startAddr = data;
     auto chunkLength = BUFFER_SIZE / THREAD_COUNT;
 
     auto start = std::chrono::high_resolution_clock::now();
 
     for (int i = 0; i < THREAD_COUNT; i++) {
-        threads[i] = std::thread(FillChunk, i, start_addr, chunkLength);
-        start_addr += chunkLength;
+        threads[i] = std::thread(FillChunk, i, startAddr, chunkLength);
+        startAddr += chunkLength;
     }
     for (int i = 0; i < THREAD_COUNT; i++) {
         threads[i].join();
@@ -44,7 +44,7 @@ int main()
 
     auto finish = std::chrono::high_resolution_clock::now();
 
-    delete[] largeData;
+    delete[] data;
     std::cout << "Finished in " << (finish - start).count() << " seconds." << std::endl;
     std::cin.get();
 }
