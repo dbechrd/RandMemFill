@@ -20,8 +20,7 @@ void FillChunk(int id, int *arr, size_t length)
     ss << "Thread " << id << " start: " << arr << " length: " << length << std::endl;
     std::cout << ss.str();
 
-    size_t i = 0;
-    for (int i = 0; i < length; i++) {
+    for (size_t i = 0; i < length; i++) {
         arr[i] = rand();
     }
 }
