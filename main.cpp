@@ -6,7 +6,6 @@
 #include <sstream>
 #include <thread>
 #include <chrono>
-#include <vector>
 
 #define KB(x) (1024ll * (x))
 #define MB(x) (1024ll * KB(x))
@@ -33,14 +32,14 @@ int main()
     int *largeData = new int[largeDataLength];
 
     const int threadCount = THREAD_COUNT;
-    std::vector<std::thread> threads;
+    std::thread threads[threadCount];
 
     auto start = std::chrono::high_resolution_clock::now();
 
     auto chunkLength = largeDataLength / threadCount;
     int *start_addr = largeData;
     for (int i = 0; i < threadCount; i++) {
-        threads.push_back(std::thread(FillChunk, i, start_addr, chunkLength));
+        threads[i] = std::thread(FillChunk, i, start_addr, chunkLength);
         start_addr += chunkLength;
     }
     for (int i = 0; i < threadCount; i++) {
