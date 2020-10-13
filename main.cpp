@@ -12,6 +12,7 @@
 #define MB(x) (1024ll * KB(x))
 #define GB(x) (1024ll * MB(x))
 
+#define BUFFER_SIZE GB(1)
 #define THREAD_COUNT 4
 
 void FillChunk(int id, int *arr, size_t length)
@@ -28,7 +29,7 @@ void FillChunk(int id, int *arr, size_t length)
 
 int main()
 {
-    auto largeDataLength = GB(1);
+    auto largeDataLength = BUFFER_SIZE;
     int *largeData = new int[largeDataLength];
 
     const int threadCount = THREAD_COUNT;

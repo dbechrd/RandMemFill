@@ -1,2 +1,4 @@
 C:\Users\user\Documents\Development\DerrikCreates_RandMemFill\x64\Debug\DerrikCreates_RandMemFill.exe
 C:\Users\user\Documents\Development\DerrikCreates_RandMemFill\x64\Debug\DerrikCreates_RandMemFill.pdb
+C:\Users\user\Documents\Development\RandMemFill\x64\Debug\DerrikCreates_RandMemFill.exe
+C:\Users\user\Documents\Development\RandMemFill\x64\Debug\DerrikCreates_RandMemFill.pdb
